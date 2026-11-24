@@ -17,5 +17,13 @@ const JOKE =
   'I told my wife I was writing a book about the moon. She said it was a lunar-tic idea.';
 
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+
+// The gate requires 1 to 200 characters and not only white space.
+// Fail loudly here rather than ever writing an invalid entry.
+if (JOKE.length < 1 || JOKE.length > 200 || JOKE.trim().length === 0) {
+  process.stderr.write(`dad joke: joke is ${JOKE.length} characters, outside the 1-200 gate\n`);
+  process.exit(1);
+}
+
 mkdirSync(outputDir, { recursive: true });
 writeFileSync(join(outputDir, 'entry.txt'), JOKE, 'utf8');
