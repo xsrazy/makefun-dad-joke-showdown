@@ -9,9 +9,12 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-// Draft joke: a clean, original tree pun.
+// The joke: a straight-faced dialogue with the wife, one clean pun
+// landing at the very end. "Lunar-tic" reads as "lunatic" aloud, which
+// is exactly the groan a dad joke wants, and the moon setup makes the
+// turn land on the first read with no explaining.
 const JOKE =
-  'I told my son a joke about a tree. He said it was a bit sappy.';
+  'I told my wife I was writing a book about the moon. She said it was a lunar-tic idea.';
 
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 mkdirSync(outputDir, { recursive: true });
